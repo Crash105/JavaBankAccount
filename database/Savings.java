@@ -2,12 +2,13 @@ package database;
 
 public class Savings extends Account {
 
-    private String number;
-    private String code;
+    int safetyDepositID;
+    int safetyDepositKey;
 
-    public Savings(String name) {
-        super(name);
-        System.out.println("New Saving Account. Name: " + name);
+    public Savings(String name, String SSN, int deposit) {
+        super(name, SSN, deposit);
+        System.out.println("New Savings Account");
+
     }
 
 }

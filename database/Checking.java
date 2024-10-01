@@ -2,12 +2,13 @@ package database;
 
 public class Checking extends Account {
 
-    private String debitcard;
-    private String pin;
+    int debitcard;
+    int debitCard;
 
-    public Checking(String name) {
-        super(name);
-        System.out.println("New Checking Account. Name: " + name);
+    public Checking(String name, String SSN, int deposit) {
+        super(name, SSN, deposit);
+        System.out.println("New Checking Account");
+
     }
 
 }
