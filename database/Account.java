@@ -18,9 +18,8 @@ public abstract class Account implements IBaseRate {
         System.out.println("New Account Added");
         System.out.println("Name: " + name + "\nSSN: " + SSN + "\nBalance: " + balance);
         id++;
-        System.out.println(id);
+
         this.accountNumber = setAccountNumber();
-        System.out.println(this.accountNumber);
 
     }
 
