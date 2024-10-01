@@ -15,10 +15,7 @@ public abstract class Account implements IBaseRate {
         this.name = name;
         this.SSN = SSN;
         balance = deposit;
-        System.out.println("New Account Added");
-        System.out.println("Name: " + name + "\nSSN: " + SSN + "\nBalance: " + balance);
         id++;
-
         this.accountNumber = setAccountNumber();
 
     }
@@ -46,6 +43,10 @@ public abstract class Account implements IBaseRate {
         String accountNumber1 = sb1.toString();
         return accountNumber1;
 
+    }
+
+    public String showInfo() {
+        return "New Account Added\nName: " + name + "\nSSN: " + SSN + "\nBalance: " + balance;
     }
 
 }
