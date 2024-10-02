@@ -17,8 +17,11 @@ public abstract class Account implements IBaseRate {
         balance = deposit;
         id++;
         this.accountNumber = setAccountNumber();
+        setRate();
 
     }
+
+    public abstract void setRate();
 
     public void deposit(int pay) {
         balance = balance + pay;

@@ -22,11 +22,18 @@ public class Checking extends Account {
         this.debitCardNumber = rand_int1;
     }
 
+    @Override
+    public void setRate() {
+        double baserate = getBaseRate();
+        rate = baserate * .15;
+
+    }
+
     public String showInfo() {
         System.out.println(super.showInfo());
         System.out.println("*************************");
         return "ACCOUNT TYPE: CHECKING" + "\nChecking Account Number: " + accountNumber + "\nDebit Card Pin: "
-                + debitCardPIN + "\nDebit Card Number: " + debitCardNumber;
+                + debitCardPIN + "\nDebit Card Number: " + debitCardNumber + "\nChecking Rate: " + rate + "%";
 
     }
 
