@@ -23,12 +23,19 @@ public abstract class Account implements IBaseRate {
 
     public abstract void setRate();
 
-    public void deposit(int pay) {
-        balance = balance + pay;
+    public void deposit(double amount) {
+        balance = balance + amount;
+        System.out.println("Deposit: $" + amount);
     }
 
-    public void withdraw(int pay) {
-        balance = balance - pay;
+    public void withdraw(double amount) {
+        balance = balance - amount;
+        System.out.println("Withdraw: $" + amount);
+    }
+
+    public void transfer(String name, double amount) {
+        balance = balance - amount;
+        System.out.println("Transferring $" + amount + " to " + name);
     }
 
     private String setAccountNumber() {
