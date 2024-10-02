@@ -11,13 +11,21 @@ public class Savings extends Account {
         super(name, SSN, deposit);
         accountNumber = "1" + accountNumber;
         setSafetyBox();
+
     }
 
     public String showInfo() {
         System.out.println(super.showInfo());
         System.out.println("*************************");
         return "ACCOUNT TYPE: SAVING" + "\nSavings Account Number: " + accountNumber + "\nSafety Deposit Box ID: "
-                + safetyDepositID + "\nSafety Deposot Box Key: " + safetyDepositKey;
+                + safetyDepositID + "\nSafety Deposot Box Key: " + safetyDepositKey + "\nSaving Rate: " + rate + "%";
+    }
+
+    @Override
+    public void setRate() {
+        double baserate = getBaseRate();
+        rate = baserate - .25;
+
     }
 
     private void setSafetyBox() {
