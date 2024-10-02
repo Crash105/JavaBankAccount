@@ -4,12 +4,12 @@ import java.util.Random;
 
 public abstract class Account implements IBaseRate {
 
-    String name;
-    String SSN;
-    double balance;
-    String accountNumber;
-    double rate;
-    static int id = 10000;
+    private String name;
+    private String SSN;
+    private double balance;
+    protected String accountNumber;
+    protected double rate;
+    private static int id = 10000;
 
     public Account(String name, String SSN, int deposit) {
         this.name = name;
@@ -18,6 +18,7 @@ public abstract class Account implements IBaseRate {
         id++;
         this.accountNumber = setAccountNumber();
         setRate();
+        compound();
 
     }
 
@@ -36,6 +37,12 @@ public abstract class Account implements IBaseRate {
     public void transfer(String name, double amount) {
         balance = balance - amount;
         System.out.println("Transferring $" + amount + " to " + name);
+    }
+
+    public void compound() {
+        double accruedinterest = balance * (rate / 100);
+        System.out.println("Accrued Interest: " + accruedinterest);
+        balance = balance + accruedinterest;
     }
 
     private String setAccountNumber() {
