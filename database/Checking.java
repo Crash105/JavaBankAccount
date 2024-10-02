@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Checking extends Account {
 
-    int debitCardNumber;
-    int debitCardPIN;
+    private int debitCardNumber;
+    private int debitCardPIN;
 
     public Checking(String name, String SSN, int deposit) {
         super(name, SSN, deposit);
