@@ -10,15 +10,16 @@ public abstract class Account implements IBaseRate {
     protected String accountNumber;
     protected double rate;
     private static int id = 10000;
+    private double accruedinterest;
 
-    public Account(String name, String SSN, int deposit) {
+    public Account(String name, String SSN, double deposit) {
         this.name = name;
         this.SSN = SSN;
         balance = deposit;
         id++;
         this.accountNumber = setAccountNumber();
         setRate();
-        compound();
+        accruedinterest = compound();
 
     }
 
@@ -39,10 +40,11 @@ public abstract class Account implements IBaseRate {
         System.out.println("Transferring $" + amount + " to " + name);
     }
 
-    public void compound() {
+    public double compound() {
         double accruedinterest = balance * (rate / 100);
-        System.out.println("Accrued Interest: " + accruedinterest);
+
         balance = balance + accruedinterest;
+        return accruedinterest;
     }
 
     private String setAccountNumber() {
@@ -63,7 +65,8 @@ public abstract class Account implements IBaseRate {
     }
 
     public String showInfo() {
-        return "New Account Added\nName: " + name + "\nSSN: " + SSN + "\nBalance: " + balance;
+        return "New Account Added\nName: " + name + "\nSSN: " + SSN + "\nBalance: " + balance + "\nAccrued Interest: "
+                + accruedinterest;
     }
 
 }

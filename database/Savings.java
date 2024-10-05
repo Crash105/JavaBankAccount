@@ -7,7 +7,7 @@ public class Savings extends Account {
     private int safetyDepositID;
     private int safetyDepositKey;
 
-    public Savings(String name, String SSN, int deposit) {
+    public Savings(String name, String SSN, double deposit) {
         super(name, SSN, deposit);
         accountNumber = "1" + accountNumber;
         setSafetyBox();
@@ -15,8 +15,9 @@ public class Savings extends Account {
     }
 
     public String showInfo() {
-        System.out.println(super.showInfo());
+
         System.out.println("*************************");
+        System.out.println(super.showInfo());
         return "ACCOUNT TYPE: SAVING" + "\nSavings Account Number: " + accountNumber + "\nSafety Deposit Box ID: "
                 + safetyDepositID + "\nSafety Deposot Box Key: " + safetyDepositKey + "\nSaving Rate: " + rate + "%";
     }
