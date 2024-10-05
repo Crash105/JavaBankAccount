@@ -6,26 +6,38 @@ import java.util.List;
 public class BankAccount {
     public static void main(String[] args) {
 
+        List<Account> accounts = new LinkedList<Account>();
+
         String file = "C:\\Users\\Brian\\BankAccountApplication\\JavaBankAccount\\database\\NewBankAccounts.csv";
 
         List<String[]> newcustomers = database.utilities.CSV.read(file);
 
         for (String[] newcustomer : newcustomers) {
-            System.out.println("New Account");
-            System.out.println(newcustomer[0]);
-            System.out.println(newcustomer[1]);
-            System.out.println(newcustomer[2]);
-            System.out.println(newcustomer[3]);
+
+            String name = newcustomer[0];
+            String SSN = newcustomer[1];
+            String accountType = newcustomer[2];
+            String deposit1 = newcustomer[3];
+            double deposit = Double.valueOf(deposit1);
+            if (accountType.equals("Savings")) {
+
+                accounts.add(new Savings(name, SSN, deposit));
+            } else if (accountType.equals("Checking")) {
+
+                accounts.add(new Checking(name, SSN, deposit));
+
+            } else {
+                System.out.println("Error Creating an Account");
+            }
 
         }
+        for (Account acc : accounts) {
+            System.out.println(acc.showInfo());
+        }
 
-        // Checking account1 = new Checking("Joe Smith", "123456789", 200);
-        // account1.deposit(200);
-        // account1.withdraw(100);
-        // account1.transfer("Brokerage", 50);
-        // System.out.println(account1.showInfo());
-        // Savings account2 = new Savings("Joe Smith", "123456789", 400);
-        // System.out.println(account2.showInfo());
+        System.out.println("*******************");
+        System.out.println("Get Account 5");
+        System.out.println(accounts.get(5).showInfo());
 
     }
 }

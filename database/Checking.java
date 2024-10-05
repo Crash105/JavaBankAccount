@@ -7,7 +7,7 @@ public class Checking extends Account {
     private int debitCardNumber;
     private int debitCardPIN;
 
-    public Checking(String name, String SSN, int deposit) {
+    public Checking(String name, String SSN, double deposit) {
         super(name, SSN, deposit);
         accountNumber = "2" + accountNumber;
         setDebitCard();
@@ -30,8 +30,9 @@ public class Checking extends Account {
     }
 
     public String showInfo() {
-        System.out.println(super.showInfo());
+
         System.out.println("*************************");
+        System.out.println(super.showInfo());
         return "ACCOUNT TYPE: CHECKING" + "\nChecking Account Number: " + accountNumber + "\nDebit Card Pin: "
                 + debitCardPIN + "\nDebit Card Number: " + debitCardNumber + "\nChecking Rate: " + rate + "%";
 
