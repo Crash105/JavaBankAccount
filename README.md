@@ -56,13 +56,10 @@ Jane Smith,987-65-4321,Savings,5000.00
    - Account.java
    - utilities/CSV.java
    - BankAccount.java
-   ```
 5. Run the application:
     BankAccount.java
 
 ## Future Enhancements
-
-- 
 - Add a user interface for interactive banking operations
 - Implement data persistence (database integration)
 - Add error handling and logging
